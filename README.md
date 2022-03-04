@@ -8,10 +8,33 @@ API for dnx using Flask, Flask-RESTX
 
 ## Pre-requisites
 
-This app uses `MongoDB` as its database, make sure you have it installed.
-`python3-venv` is recommended to help manage the virtualenv.
+This app make use of `dnstwist` as its engine and `MongoDB` as its database, make sure you have it installed. `python3-venv` is recommended to help manage the virtualenv.
 
 It uses [Black](https://github.com/psf/black) for code styling/formatting.
+
+## Installation
+
+```bash
+# Clone the project repository
+git clone https://github.com/ahmad4fifz/dnx.git
+
+# Change directory to dnx and initialize virtualenv
+cd dnx
+python3 -m venv venv
+source venv/bin/activate
+
+# Install requirements
+pip install -r src/requirements.txt
+
+# Run the app
+flask run
+```
+
+The web can be access on `http://localhost:5000/api/v1/`.
+
+> If `localhost:5000` can't access, try run this: `flask run --host=0.0.0.0`
+>
+> The web accessible on http://<host_ip>:5000/api/v1/
 
 ## Deployment
 
@@ -23,10 +46,16 @@ It uses [Black](https://github.com/psf/black) for code styling/formatting.
 
 ## API Reference
 
-#### Query domain instantly
+### View docs
 
 ```http
-  GET /api/domain/
+  GET /api/v1/docs/
+```
+
+### Query domain instantly
+
+```http
+  GET /api/v1/domain/query/
 ```
 
 | Parameter | Type     | Description                   |
