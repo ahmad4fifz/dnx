@@ -1,27 +1,37 @@
-version: "3.8"
+version: "3.9"
 
 services:
-
   # Main app
-  flask-app:
+  flask_api:
     build: .
-    container_name: flask-app
+    container_name: flask_api
     ports:
-      - "8000:8000"
+      - "5000:5000"
     depends_on:
-      - redis
-      - mongo
+      - flask_redis
+      - flask_mongo
 
-#  # Caching and in-memory storage
-#  flask-redis:
-#    container_name: flask-redis
-#    image: redis:6.2.6-bullseye
-#    ports:
-#      - "6379"
+  #  # Caching and in-memory storage
+  #  flask_redis:
+  #    container_name: flask_redis
+  #    image: redis:6.2.6-bullseye
+  #    ports:
+  #      - "6379"
 
-  # Database  
-  flask-mongo:
-    container_name: flask-mongo
+  # Database
+  flask_mongo:
+    container_name: flask_mongo
     image: mongo:5.0
     ports:
       - "27017"
+    volumes:
+      - "mongodb:/data/db"
+      - "mongoconfig:/data/configdb"
+    environment:
+      - MONGO_INITDB_DATABASE=dnx
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=SuP3rS3cR3T
+
+volumes:
+  mongodb:
+  mongoconfig:
