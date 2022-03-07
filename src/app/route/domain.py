@@ -33,6 +33,6 @@ class DomainQuery(Resource):
         domain = request_data.get("domain")
         if validators.domain(domain):
             dnx(domain)
-            
+
         else:
             return {"message": "Invalid domain name"}, 400

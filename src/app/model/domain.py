@@ -13,8 +13,12 @@ domain_model = Model(
     "Domain",
     {
         "email": String,
-        "public_id": String,
-        "registered_on": String(attribute="registered_on_str"),
-        "token_expires_in": String,
+        "fuzzer": String,
+        "domain": String,
+        "dns_a": String,
+        "dns_aaaa": String,
+        "dns_mx": String,
+        "dns_ns": String,
+        "geoip": String,
     },
 )
