@@ -1,14 +1,14 @@
 from pymongo import MongoClient
+import os
 
 
 def get_db():
     client = MongoClient(
-        host="127.0.0.1",
-        port=27017,
-        username="user",
-        password="SuP3rS3cR3T",
+        host=os.getenv("MONGO_HOST"),
+        port=os.getenv("MONGO_PORT"),
+        username=os.getenv("MONGO_USER"),
+        password=os.getenv("MONGO_PASSWORD"),
         authSource="admin",
     )
-    db = client["dnx"]
+    db = client[os.getenv("MONGO_DATABASE")]
     return db
-
