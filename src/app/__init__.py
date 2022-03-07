@@ -4,8 +4,6 @@ from flask_restx import Api
 
 from app.route.domain import domain_ns
 
-# from app.config import get_config
-
 api_bp = Blueprint("api", __name__, url_prefix="/api/v1")
 
 api = Api(
@@ -18,11 +16,8 @@ api = Api(
 
 api.add_namespace(domain_ns, path="/domain")
 
-#def create_app(config_name):
+
 def create_app():
     app = Flask("__name__")
-    # app.config.from_object(get_config(config_name))
-
     app.register_blueprint(api_bp)
-
     return app
