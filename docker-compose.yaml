@@ -28,9 +28,9 @@ services:
       - "mongodb:/data/db"
       - "mongoconfig:/data/configdb"
     environment:
-      - MONGO_INITDB_DATABASE=dnx
-      - MONGO_INITDB_ROOT_USERNAME=user
-      - MONGO_INITDB_ROOT_PASSWORD=SuP3rS3cR3T
+      - MONGO_INITDB_DATABASE=${MONGO_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
 
 volumes:
   mongodb:
