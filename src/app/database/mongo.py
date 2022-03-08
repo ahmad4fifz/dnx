@@ -7,7 +7,6 @@ def get_db():
         port=os.getenv("MONGO_PORT"),
         username=os.getenv("MONGO_USER"),
         password=os.getenv("MONGO_PASSWORD"),
-        authSource="admin",
     )
     db = client[os.getenv("MONGO_DATABASE")]
     col = db[os.getenv("MONGO_COLLECTION")]
