@@ -1,7 +1,6 @@
 from pymongo import MongoClient
 import os
 
-
 def get_db():
     client = MongoClient(
         host=os.getenv("MONGO_HOST"),
@@ -11,4 +10,5 @@ def get_db():
         authSource="admin",
     )
     db = client[os.getenv("MONGO_DATABASE")]
-    return db
+    col = db[os.getenv("MONGO_COLLECTION")]
+    return col
